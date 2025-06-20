@@ -70,3 +70,26 @@ This is a dragonpilot fork of openpilot - an open source driver assistance syste
 - `interface.py` files provide standardized car interfaces
 - `values.py` files contain vehicle-specific constants and parameters
 - Generated code often in `c_generated_code/` directories
+
+## Vehicle Porting and Performance Tuning
+
+### BYD Atto3 Porting
+For porting the BYD Atto3 electric vehicle, see the comprehensive guide at:
+- `docs/BYD_ATTO3_PORTING.md` - Complete porting methodology including CAN analysis, interface development, and safety protocols
+
+### Performance Tuning
+For optimizing vehicle performance and control parameters:
+- `docs/VEHICLE_PERFORMANCE_TUNING.md` - Comprehensive tuning guide covering lateral/longitudinal control, PID tuning, torque calibration, and DragonPilot-specific features
+
+### Key Tuning Files
+- `selfdrive/car/tunes.py` - Lateral control parameter definitions (PID, INDI)
+- `selfdrive/car/torque_data/params.yaml` - Vehicle-specific torque characteristics
+- `common/dp_conf.py` - DragonPilot configuration parameters
+- `selfdrive/car/*/values.py` - Vehicle-specific control limits and characteristics
+
+### Tuning Process Overview
+1. **CAN Analysis**: Identify and decode vehicle CAN messages
+2. **Interface Development**: Create vehicle-specific interface classes
+3. **Safety Calibration**: Set conservative control limits and safety parameters  
+4. **Performance Optimization**: Tune PID/INDI gains for optimal control
+5. **Real-world Testing**: Validate performance across various driving conditions
